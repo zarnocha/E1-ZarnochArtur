@@ -4,9 +4,11 @@ public class Z2 {
 
     static public <E extends Iterable<?>> void printMarginal(E obj) {
         Iterator iter = obj.iterator();
+
         if (iter.hasNext()) {
             System.out.print(iter.next() + " ");
         }
+
         Iterator iter2 = obj.iterator();
         iter2.next(); iter2.next();
         while (iter2.hasNext()) {

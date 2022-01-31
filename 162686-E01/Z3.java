@@ -8,10 +8,16 @@ public class Z3 {
     public static File[] sorted(File[] tab) {
         Stream<File> str = Arrays.stream(tab).sorted((obj, obj2) -> {
             if (obj.isDirectory() && !(obj2.isDirectory())) {
+                return -1;
+            }
+            else if (!obj.isDirectory() && obj2.isDirectory()) {
                 return 1;
             }
-            else if (obj.isDirectory() && obj2.isDirectory() || !(obj.isDirectory()) && !(obj2.isDirectory())) {
-                return obj.toString().compareTo(obj2.toString());
+            else if (obj.isDirectory() && obj2.isDirectory()) {
+                return obj.toString().compareToIgnoreCase(obj2.toString());
+            }
+            else if (!(obj.isDirectory()) && !(obj2.isDirectory())) {
+                return obj2.toString().compareToIgnoreCase(obj.toString());
             }
             else return 0;
         });
@@ -26,4 +32,13 @@ public class Z3 {
         return new_tab;
     }
 
+    public static void main(String[] args) {
+        File file = new File("C:\\EgzaminPO\\E1-ZarnochArtur");
+        File[] tab_file = file.listFiles();
+        tab_file = sorted(tab_file);
+        
+        for (int i = 0; i < tab_file.length; i++) {
+            System.out.print(tab_file[i] + "\n");
+        }
+    }
 }

@@ -1,6 +1,7 @@
 import java.io.File;
 import java.util.Arrays;
 import java.util.Iterator;
+import java.util.Scanner;
 import java.util.stream.Stream;
 
 public class Z3 {
@@ -33,7 +34,11 @@ public class Z3 {
     }
 
     public static void main(String[] args) {
-        File file = new File("C:\\EgzaminPO\\E1-ZarnochArtur");
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Podaj lokalizacje:");
+        String lokalizacja = scan.nextLine();
+
+        File file = new File(lokalizacja);
         File[] tab_file = file.listFiles();
         tab_file = sorted(tab_file);
 

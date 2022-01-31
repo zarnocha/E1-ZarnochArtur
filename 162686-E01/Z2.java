@@ -8,9 +8,15 @@ public class Z2 {
         if (iter.hasNext()) {
             System.out.print(iter.next() + " ");
         }
-        while (iter.hasNext() == false) {
+
+        Iterator iter2 = iter;
+        iter2.next();
+
+        while (!iter2.hasNext()) {
+            iter2.next();
             iter.next();
         }
+
         System.out.println(iter.next());
     }
 
@@ -19,6 +25,7 @@ public class Z2 {
         tab.add(1);
         tab.add(2);
         tab.add(3);
+        tab.add(4);
         printMarginal(tab);
     }
 

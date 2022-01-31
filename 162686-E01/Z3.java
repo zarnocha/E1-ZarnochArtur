@@ -17,7 +17,7 @@ public class Z3 {
                 return obj.toString().compareToIgnoreCase(obj2.toString());
             }
             else if (!(obj.isDirectory()) && !(obj2.isDirectory())) {
-                return obj2.toString().compareToIgnoreCase(obj.toString());
+                return obj.getName().compareToIgnoreCase(obj2.getName());
             }
             else return 0;
         });
@@ -36,7 +36,7 @@ public class Z3 {
         File file = new File("C:\\EgzaminPO\\E1-ZarnochArtur");
         File[] tab_file = file.listFiles();
         tab_file = sorted(tab_file);
-        
+
         for (int i = 0; i < tab_file.length; i++) {
             System.out.print(tab_file[i] + "\n");
         }
